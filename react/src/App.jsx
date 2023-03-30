@@ -2,34 +2,26 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import MyTitle from './Mytitle' 
+// mytitle represente le composant et ./Mytitle represente le chemin et ca qui est precis parce que le chemin est précis 
+// import MyTitle from './components/PokemonCard'
+//   quand tu appelles deux fois deux composants avec le meme nom ca ne marche pas 
+//  le nom des composants doit être pareil 
+import PokemonCard from './components/PokemonCard'
+// app jsx est un composant 
 
 function App() {
   const [count, setCount] = useState(0)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    return (
+  <div>
+        <MyTitle/>
+        <PokemonCard/>
+        
+  </div>
+  
+
+ )}
+  
 
 export default App
