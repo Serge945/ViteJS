@@ -1,20 +1,22 @@
-import Serge from '../Mytitle'
+import React from 'react';
+// import PokemonCard from '../components/PokemonCard';
+import MyTitle from '../Mytitle';
+ 
 
-
- const pokemon = "bulbasaur";  
- const pokemonList = [
-     {
-     name: "bulbasaur",
-     imgSrc:
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-        },
-        {
-          name: "mew",
-        },
-        {
-          name: "pikachu",
-        },
-      ];
+//  const pokemon = "bulbasaur";  
+//  const pokemonList = [
+//      {
+//      name: "bulbasaur",
+//      imgSrc:
+//             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+//         },
+//         {
+//           name: "mew",
+//         },
+//         {
+//           name: "pikachu",
+//         },
+//       ];
 
         
       
@@ -23,17 +25,34 @@ import Serge from '../Mytitle'
 //  l'intéret du jsx est de pouvoir faire du js dans du html
 //  le but du return est de renvoyer le jsx  
 
-function PokemonCard(){
-    const pokemon=pokemonList[0]; 
-    const image = pokemon.imgSrc ? <img src={pokemon.imgSrc} alt={pokemon.name} /> : <p>???</p>;
+// function PokemonCardStatic(){
+//     const pokemon=pokemonList[0]; 
+//     const image = pokemon.imgSrc ? <img src={pokemon.imgSrc} alt={pokemon.name} /> : <p>???</p>;
 
-    return (
-        <div>
-    <h2>{pokemon.name}</h2>
-      {image}
+//     return (
+//         <div>
+//     <h2>{pokemon.name}</h2>
+//       {image}
     
-    </div>
-    )
+//     </div>
+//     )
+// }
+
+function PokemonCard(props){
+    console.log(props)
+    const pokemon = props.pokemon;
+    const image = pokemon.imgSrc? (
+        <img src={pokemon.imgSrc} alt={pokemon.name} />
+      ) : (
+        <p>???</p>
+      );
+
+return (
+<div>
+<h2>{pokemon.name}</h2>
+{image}
+</div>
+);
 }
 
 // explication de la ternaire 
