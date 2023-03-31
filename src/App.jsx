@@ -12,31 +12,72 @@ import PokemonCard from './components/PokemonCard'
 // app jsx est un composant 
 
 
-const pokemon = "bulbasaur";  
- const pokemonList = [
-     {
-     name: "bulbasaur",
-     imgSrc:
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-        },
-        {
-          name: "mew",
-        },
-        {
-          name: "pikachu",
-        },
-      ];
+const pokemonList = [
+  {
+      name: "bulbasaur",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    {
+      name: "charmander",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    {
+      name: "squirtle",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    {
+      name: "pikachu",
+      imgSrc:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    {
+      name: "mew",
+    },
+  ];
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [pokemonIndex, setPokemonIndex] = useState(0);
 
-    return (
-      <div>
-        <MyTitle/>
-        <PokemonCard pokemon = {pokemonList[0]}/>
-      </div>
+  const handlePrevClick = () =>{
+    setPokemonIndex(pokemonIndex-1); 
+  }; 
+
+  const handleNextClick = ()=>{
+    setPokemonIndex(pokemonIndex+1);
+  };
+  return(
+  <div className="App">
+  <div className="pokemon-card">
+    <h2>{currentPokemon.name}</h2>
+    <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
+  </div>
+  <div className="buttons">
+    <button onClick={handlePrevClick} disabled={pokemonIndex === 0}>
+      Précédent
+    </button>
+    <button
+      onClick={handleNextClick}
+      disabled={pokemonIndex === pokemonList.length - 1}
+    >
+      Suivant
+    </button>
+  </div>
+</div>
+);
+}
+
+
+
+    // return (
+    //   <div>
+    //     <MyTitle/>
+    //     <PokemonCard pokemon = {pokemonList[0]}/>
+    //   </div>
   
 )
     }
