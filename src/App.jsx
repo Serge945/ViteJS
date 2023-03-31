@@ -38,6 +38,18 @@ const pokemonList = [
     },
   ];
 
+  function NavBar({ onPreviousClick, onNextClick }) {
+    return (
+      <div>
+        <button onClick={onPreviousClick}>Précédent</button>
+        <button onClick={onNextClick}>Suivant</button>
+      </div>
+    );
+  }
+
+
+
+
 
 
 function App() {
@@ -52,14 +64,27 @@ function App() {
   };
   const currentPokemon = pokemonList[pokemonIndex];
   return(
+  <div>
     <div>
     <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
     <h2>{currentPokemon.name}</h2>
     <button onClick={handlePreviousPokemon}>Précédent</button>
     <button onClick={handleNextPokemon}>Suivant</button>
     </div>
-);
-}
+
+  <div>
+    <NavBar
+      onPreviousClick={handlePreviousPokemon}
+      onNextClick={handleNextPokemon}
+    />
+    <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
+    <h2>{currentPokemon.name}</h2>
+  </div>
+</div> 
+  )
+  }
+
+
   export default App
 
 
