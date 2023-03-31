@@ -43,33 +43,25 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const handlePrevClick = () =>{
+  const handlePreviousPokemon = () =>{
     setPokemonIndex(pokemonIndex-1); 
   }; 
 
-  const handleNextClick = ()=>{
+  const handleNextPokemon= ()=>{
     setPokemonIndex(pokemonIndex+1);
   };
+  const currentPokemon = pokemonList[pokemonIndex];
   return(
-  <div className="App">
-  <div className="pokemon-card">
-    <h2>{currentPokemon.name}</h2>
+    <div>
     <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
-  </div>
-  <div className="buttons">
-    <button onClick={handlePrevClick} disabled={pokemonIndex === 0}>
-      Précédent
-    </button>
-    <button
-      onClick={handleNextClick}
-      disabled={pokemonIndex === pokemonList.length - 1}
-    >
-      Suivant
-    </button>
-  </div>
-</div>
+    <h2>{currentPokemon.name}</h2>
+    <button onClick={handlePreviousPokemon}>Précédent</button>
+    <button onClick={handleNextPokemon}>Suivant</button>
+    </div>
 );
 }
+  export default App
+
 
 
 
@@ -79,10 +71,8 @@ function App() {
     //     <PokemonCard pokemon = {pokemonList[0]}/>
     //   </div>
   
-)
-    }
 
-export default App
+
 
 // PokemonCard est un composant React et pokemon est une prop passée à ce composant.
 
