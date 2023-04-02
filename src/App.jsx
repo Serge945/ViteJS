@@ -48,44 +48,68 @@ const pokemonList = [
   }
 
 
-
-
-
-
-function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
-
-  const handlePreviousPokemon = () =>{
-    setPokemonIndex(pokemonIndex-1); 
-  }; 
-
-  const handleNextPokemon= ()=>{
-    setPokemonIndex(pokemonIndex+1);
-  };
-  const currentPokemon = pokemonList[pokemonIndex];
-  return(
-  <div>
-    <div>
-    <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
-    <h2>{currentPokemon.name}</h2>
-    <button onClick={handlePreviousPokemon}>Précédent</button>
-    <button onClick={handleNextPokemon}>Suivant</button>
-    </div>
-
-  <div>
-    <NavBar
-      onPreviousClick={handlePreviousPokemon}
-      onNextClick={handleNextPokemon}
-    />
-    <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
-    <h2>{currentPokemon.name}</h2>
-  </div>
-</div> 
-  )
+  function App() {
+    const [pokemonIndex, setPokemonIndex] = useState(0);
+  
+    const handlePokemonClick = (index) => {
+      setPokemonIndex(index);
+    };
+  
+    return (
+      <div>
+        {pokemonList.map((pokemon, index) => (
+          <button key={index} onClick={() => handlePokemonClick(index)}>
+            {pokemon.name}
+          </button>
+        ))}
+        <h2>{pokemonList[pokemonIndex].name}</h2>
+        <img
+          src={pokemonList[pokemonIndex].imgSrc}
+          alt={pokemonList[pokemonIndex].name}
+        />
+      </div>
+    );
   }
+  
+  export default App;
+  
 
 
-  export default App
+
+// function App() {
+//   const [pokemonIndex, setPokemonIndex] = useState(0);
+
+//   const handlePreviousPokemon = () =>{
+//     setPokemonIndex(pokemonIndex-1); 
+//   }; 
+
+//   const handleNextPokemon= ()=>{
+//     setPokemonIndex(pokemonIndex+1);
+//   };
+//   const currentPokemon = pokemonList[pokemonIndex];
+//   return(
+//   <div>
+//     <div>
+//     <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
+//     <h2>{currentPokemon.name}</h2>
+//     <button onClick={handlePreviousPokemon}>Précédent</button>
+//     <button onClick={handleNextPokemon}>Suivant</button>
+//     </div>
+
+//   <div>
+//     <NavBar
+//       onPreviousClick={handlePreviousPokemon}
+//       onNextClick={handleNextPokemon}
+//     />
+//     <img src={currentPokemon.imgSrc} alt={currentPokemon.name} />
+//     <h2>{currentPokemon.name}</h2>
+//   </div>
+// </div> 
+//   )
+//   }
+
+
+//   export default App
 
 
 
